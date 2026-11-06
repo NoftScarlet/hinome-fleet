@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- 万舰的风景 (c) 2026 TFON_Scarlet. All rights reserved. 未经许可禁止复制、修改、再分发或商用。See LICENSE. -->
+<html lang="zh-CN">
+<head>
+<meta name="copyright" content="万舰的风景 (c) 2026 TFON_Scarlet. All rights reserved. 未经许可禁止复制、修改、再分发或商用。See LICENSE.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>万舰的风景</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@800&display=swap" rel="stylesheet">
+<style>:root{--fg:#f4ecff;--dim:rgba(244,236,255,.62);--accent:#ffb36b;--bg:#02030a;}html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;color:var(--fg);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;}canvas{display:block;}#hud{position:fixed;inset:0;pointer-events:none;}#title{position:absolute;left:28px;top:24px;letter-spacing:.32em;font-weight:300;font-size:clamp(14px,1.6vw,20px);color:var(--dim);text-shadow:0 0 18px rgba(0,0,0,.8);}#title b{color:var(--fg);font-weight:500;}#title .ja{margin-top:6px;font-size:.62em;letter-spacing:.28em;}#count{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);text-align:center;text-shadow:0 0 20px rgba(0,0,0,.9);opacity:0;transition:opacity .8s;}#count.show{opacity:1;}#count{font-family:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;}#count .n{font-size:clamp(36px,5.2vw,68px);letter-spacing:.02em;font-weight:800;line-height:1.1;transform:scaleX(0.68);}#count .tiers{margin-top:4px;font-size:clamp(16px,1.9vw,23px);letter-spacing:.02em;font-weight:800;color:rgba(244,236,255,.8);transform:scaleX(0.68);}#count .tiers i{font-style:normal;padding:0 .6em;}#hint{position:absolute;right:26px;top:24px;text-align:right;font-size:12.5px;line-height:1.7;letter-spacing:.1em;color:rgba(244,236,255,.62);text-shadow:0 0 12px rgba(0,0,0,.85);opacity:0;transition:opacity 1.2s;}#hint.show{opacity:1;}#hint .ja{font-size:11.5px;color:rgba(244,236,255,.5);}@media (max-width:600px){#title{left:16px;top:16px;}#hint{display:none;}}#toast{position:absolute;left:50%;top:22%;transform:translate(-50%,-8px);padding:12px 22px;border-radius:10px;background:rgba(40,14,20,.55);border:1px solid rgba(255,170,110,.55);color:#ffe6d0;font-size:15px;letter-spacing:.2em;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none;white-space:nowrap;}#toast.show{opacity:1;transform:translate(-50%,0);}#fatal{display:none;position:fixed;left:50%;top:40%;transform:translate(-50%,-50%);width:min(86vw,520px);z-index:10;padding:16px 18px;border-radius:10px;background:rgba(40,14,20,.85);border:1px solid rgba(255,170,110,.55);color:#ffe6d0;font-size:15px;letter-spacing:.1em;text-align:center;}#fatal .ja{font-size:13px;margin-top:4px;color:rgba(255,230,208,.78);}#fatal pre{margin:10px 0 0;font-size:11px;letter-spacing:0;text-align:left;white-space:pre-wrap;word-break:break-all;color:rgba(255,230,208,.6);}#bgm{position:absolute;right:26px;bottom:22px;text-align:right;font-size:11px;line-height:1.6;letter-spacing:.08em;color:rgba(244,236,255,.55);text-shadow:0 0 12px rgba(0,0,0,.85);pointer-events:auto;}#bgm .t{color:rgba(244,236,255,.75);}#bgm .v{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:3px;}#bgm input{width:92px;height:14px;margin:0;accent-color:var(--accent);opacity:.75;cursor:pointer;}#bgm input:hover{opacity:1;}#bgm .se,#bgm .se a{color:rgba(244,236,255,.45);font-size:10px;line-height:1.45;text-decoration:none;}#bgm .se a:hover{text-decoration:underline;}#bgm .w{display:none;color:var(--accent);opacity:.8;}#bgm.wait .w{display:block;}@media (max-width:600px){#bgm{right:16px;bottom:auto;top:16px;}}#gate{position:fixed;inset:0;z-index:5;pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(2,3,10,.25),rgba(2,3,10,.6));cursor:default;transition:opacity 1.2s;text-shadow:0 0 18px rgba(0,0,0,.85);user-select:none;-webkit-user-select:none;}#gate .go{font-size:clamp(18px,2.4vw,26px);letter-spacing:.5em;padding-left:.5em;color:var(--fg);font-weight:300;}#gate .ja{margin-top:8px;font-size:clamp(12px,1.3vw,14px);letter-spacing:.3em;padding-left:.3em;color:var(--dim);}#gate .load{display:block;}#gate .ready-text{display:none;}#gate.ready{cursor:pointer;}#gate.ready .load{display:none;}#gate.ready .ready-text{display:block;animation:breathe 2.6s ease-in-out infinite;}#gate .load .go,#gate .load .ja{color:var(--dim);}#gate.gone{opacity:0;pointer-events:none;}@keyframes breathe{0%,100%{opacity:.55;}50%{opacity:1;}}#toast .ja{margin-top:5px;font-size:13px;letter-spacing:.12em;text-align:center;color:rgba(255,230,208,.78);}</style>
+<script>
+  // 兜底：脚本出错 / WebGL 丢失 / 10 秒还没画出第一帧时，把原因写在屏幕上（手机上看不到控制台）
+  (function(){
+    var errs = [];
+    function show(zh, detail){
+      var el = document.getElementById('fatal'); if (!el) return;
+      el.innerHTML = '';
+      var a = document.createElement('div'); a.textContent = zh; el.appendChild(a);
+      var b = document.createElement('div'); b.className = 'ja'; b.textContent = '画面を表示できませんでした'; el.appendChild(b);
+      var c = document.createElement('pre'); c.textContent = (detail ? detail + '\n' : '') + errs.slice(-4).join('\n') + '\n' + navigator.userAgent; el.appendChild(c);
+      el.style.display = 'block';
+    }
+    window.__fatal = show;
+    addEventListener('error', function(e){ errs.push(String(e.message || e.type) + (e.filename ? ' @' + e.filename.split('/').pop() + ':' + e.lineno : '')); });
+    addEventListener('unhandledrejection', function(e){ errs.push('promise: ' + String(e.reason && (e.reason.message || e.reason))); });
+    setTimeout(function(){
+      var r = window.__app && window.__app.renderer;
+      if (!r || !(r.info.render.frame > 0)) show('画面没能启动', !window.__app ? '脚本没有运行起来（浏览器太旧？）' : '还没画出第一帧');
+    }, 10000);
+  })();
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="hud">
+  <div id="title">一起去看 <b>万舰</b> 的风景<div class="ja">万艦の風景を、一緒に見に行こう</div></div>
+  <div id="count"><div class="n" id="num">10000</div><div class="tiers" id="tiers"></div></div>
+  <div id="hint">拖动旋转 · 滚轮缩放 · 1/2/3 切换镜头<div class="ja">ドラッグで回転 · ホイールでズーム · 1/2/3 で視点切替</div></div>
+  <div id="toast"></div>
+  <div id="fatal"></div>
+  <div id="gate">
+    <div class="load"><div class="go">加载中…</div><div class="ja">読み込み中…</div></div>
+    <div class="ready-text"><div class="go">点击开始</div><div class="ja">クリックで開始</div></div>
+  </div>
+  <div id="bgm">
+    <div class="t">BGM：万艦の風景</div>
+    <div class="c">Composer: TFON_Scarlet</div>
+    <div class="se">SE: <a href="https://freesound.org/people/nofeedbak/sounds/95129/" target="_blank" rel="noopener">Salute_Cannons</a> by nofeedbak<br>CC BY 4.0 · edited</div>
+    <label class="v"><span>♪</span><input type="range" id="vol" min="0" max="1" step="0.01" aria-label="音量"></label>
+    <div class="w">点击画面播放音乐 · クリックで再生</div>
+  </div>
+</div>
+<script type="module" src="./app.min.js?v=bb815ac2"></script>
+</body>
+</html>

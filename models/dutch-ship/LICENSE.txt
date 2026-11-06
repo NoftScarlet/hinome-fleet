@@ -1,0 +1,3 @@
+Dutch Ship Large 01 — Poly Haven (https://polyhaven.com/a/dutch_ship_large_01)
+Authors: James Ray Cock (model, textures, cleanup), Nicolò Zubbini (original model), Rico Cilliers (sails model, textures)
+License: CC0 1.0 Universal (public domain) — https://polyhaven.com/license

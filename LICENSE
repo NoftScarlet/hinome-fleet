@@ -1,0 +1,66 @@
+万舰的风景 (hinome-fleet)
+Copyright (c) 2026 TFON_Scarlet (GitHub: NoftScarlet). All rights reserved.
+
+======================================================================
+中文
+======================================================================
+
+本作品（包括但不限于全部源代码、打包后的脚本、着色器、场景与视觉设计、
+镜头脚本、背景音乐「万艦の風景」及其他原创素材）的著作权归 TFON_Scarlet 所有，
+保留一切权利。
+
+允许：在本站（https://noftscarlet.github.io/hinome-fleet/）在线浏览、游玩；
+      对画面进行截图、录屏，用于非商业的分享、评论与介绍（请注明出处）。
+
+未经作者书面许可，禁止：
+  - 复制、修改、翻译、反编译或基于本作品制作衍生作品（含代码、着色器与视觉设计）；
+  - 以任何形式再分发、转载、镜像或重新托管本作品或其任何部分；
+  - 将本作品或其任何部分用于商业用途，或用于参加任何比赛、评选；
+  - 将本作品或其任何部分用于训练、微调或评测机器学习模型。
+
+本仓库公开仅为托管网页（GitHub Pages）之需，公开不代表任何授权。
+
+第三方内容不属于上述作者权利，按其各自的许可条款使用，见文末「第三方内容」。
+
+======================================================================
+English
+======================================================================
+
+All source code, bundled scripts, shaders, scene and visual design, camera
+choreography, the background music "万艦の風景" and all other original assets
+of this work are the copyright of TFON_Scarlet. All rights reserved.
+
+You MAY view and play the work on its official site
+(https://noftscarlet.github.io/hinome-fleet/) and share screenshots or screen
+recordings for non-commercial commentary or introduction, with attribution.
+
+Without prior written permission from the author, you may NOT:
+  - copy, modify, translate, decompile, or create derivative works from this
+    work or any part of it (including code, shaders and visual design);
+  - redistribute, repost, mirror, or re-host this work or any part of it;
+  - use this work or any part of it commercially, or enter it in any contest;
+  - use this work or any part of it to train, fine-tune, or evaluate machine
+    learning models.
+
+This repository is public only because GitHub Pages hosting requires it.
+Public visibility grants no license of any kind.
+
+Third-party content is not covered by the above and remains under its own
+license; see "Third-party content" below.
+
+======================================================================
+第三方内容 / Third-party content
+======================================================================
+
+- 3D 模型 "Dutch Ship Large 01" — Poly Haven, CC0
+  (models/dutch-ship/LICENSE.txt)
+- 3D 模型 Pirate Kit — Kenney (www.kenney.nl), CC0
+  (models/kenney-pirate/License.txt)
+- 音效 "Salute_Cannons" by nofeedbak (freesound.org/s/95129), CC BY 4.0,
+  已剪辑 / edited
+- three.js 及其示例纹理 waternormals.jpg — MIT，经 CDN 加载，不包含在本仓库中 /
+  loaded from CDN, not included here
+- 字体 Shippori Mincho B1 — SIL Open Font License，经 Google Fonts 加载 /
+  loaded from Google Fonts
+- 鸟居扁额图片（assets/plaques/）、「火羽ひのめ」的名称与形象、舰长名单及昵称
+  归其各自权利人所有 / belong to their respective owners
